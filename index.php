@@ -40,15 +40,29 @@
 
       $host            = 'host    =   ec2-54-225-200-15.compute-1.amazonaws.com';
       $port            = 'port    =    5432';
-      $db              = 'dbname  =    d3rqa0nubl1hrl';
+      $dbname              = 'dbname  =    d3rqa0nubl1hrl';
       $credentials     = 'user    =    kfoewugrtmxlwj password = de3fd4a35896ed6e50a87af3d4981e94d13100df831a5963a54173b950f7c20c';
      
-      $db=pg_connect('$host $port $dbname $credentials');
+      $db=pg_connect("$host $port $dbname $credentials");
       if (!$db){
         echo"Error : Unable to open database\n";
       }else {
         echo "opened database successfully\n";
       }
+      
+      $sql="select * from courses";
+      $query=pg_query($db,$sql);
+      //yo database connection ma sql pass garnu vanyo
+      
+      while(($row=pg_fetch_assoc($query))){
+        echo "<li>" . $row['course_name']."</li>";
+      }
+
+      pg_close($db);
+
+
+
+
        ?>
     </div>
   
