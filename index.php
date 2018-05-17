@@ -34,16 +34,24 @@
   <body>
 
     <div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
-</div>
-  <h1> <?php echo"Hello, world!";?></h1>
-  </div>
+      <h1 class="display-4">Hello, Adarsh!</h1>
+      <?php
+      # NOTE: Mysql ra pg ma connect garna tarika farak hunxa
+
+      $host            = 'host    =   ec2-54-225-200-15.compute-1.amazonaws.com';
+      $port            = 'port    =    5432';
+      $db              = 'dbname  =    d3rqa0nubl1hrl';
+      $credentials     = 'user    =    kfoewugrtmxlwj password = de3fd4a35896ed6e50a87af3d4981e94d13100df831a5963a54173b950f7c20c';
+     
+      $db=pg_connect('$host $port $dbname $credentials');
+      if (!$db){
+        echo"Error : Unable to open database\n";
+      }else {
+        echo "opened database successfully\n";
+      }
+       ?>
+    </div>
+  
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
